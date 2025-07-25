@@ -18,11 +18,11 @@ user_query = st.chat_input(placeholder="Was willst du wissen?")
 if user_query is not None:
     # Add user message to history
     st.session_state["messages"].append({"role": "user", "content": user_query})
-    with st.chat_message(name="user"):
+    with st.chat_message(name="user", avatar="profile_head.png"):
         st.write(user_query)
     # Get assistant response
     bot_answer = rag(user_query=user_query, sql_table_info=sql_table_info)
     # Add assistant message to history
     st.session_state["messages"].append({"role": "assistant", "content": bot_answer})
-    with st.chat_message(name="assistant"):
+    with st.chat_message(name="assistant", avatar="robot.jpg"):
         st.write(bot_answer)
